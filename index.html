@@ -1,0 +1,200 @@
+<!--
+Versão 0.1
+Data 05/11/2014
+Testes básicos sobre a estruturação do código fonte e jquery mobile
+Esta é a versão para browser.
+Quando OK, será testado no Phonegap
+-->
+<!DOCTYPE html>
+
+	<head>
+		<title>Tele Sena App</title>
+		<!--Scripts jQuery/jQuery Mobile-->
+		<script type="text/javascript" src="lib/jquery-2.0.3.min.js"></script>
+		<script type="text/javascript" src="lib/jquery.mobile-1.3.2.min.js"></script>
+		<!--Folha de estilo jQuery Mobile-->		
+		<link rel="stylesheet" href="lib/jquery.mobile-1.3.2.min.css"/>
+		<link rel="stylesheet" href="lib/ts.css"/>
+		<!--Cordova-->
+		<script type="text/javascript" charset="utf-8" src="lib/js/cordova/cordova.js"></script>
+		<!--Arquivo js para importação dos resultados-->
+		<script type="text/javascript" charset="utf-8" src="http://telesena.janioantunes.com.br/lib/resultados.js"></script>	
+	</head>
+
+	<body onload="myFunction()" background="black"> 
+	
+			
+		<!--Página Apresentação-->
+		<div data-role="page" id="apresentacao">
+
+			<!--Cabeçalho-->
+			<div data-role="header" data-position="fixed" data-theme="b">
+				<h1>Tele Sena App</h1>
+			</div>
+
+			<!--Conteúdo-->
+			<div data-role="content" id="page" style="text-align:justify;" >				
+				<a href="#resultados" data-role="button" data-transition="slide">Resultado Parcial</a>
+				<a href="#tscompleta" data-role="button" data-transition="slide">Tele Sena Completa</a>
+				<a href="#ganhadores" data-role="button" data-transition="slide">Ganhadores</a>
+				<a href="#sobre" data-role="button" data-transition="slide">Sobre</a>
+			</div>
+
+			<!--Rodapé-->
+			<div data-role="footer" data-position="fixed" data-theme="b">
+				<h1>Janio L. Antunes</h1>
+			</div>
+
+		</div>
+		
+		<!--Página Sobre-->
+		<div data-role="page" id="sobre">
+		
+			<!--Cabeçalho-->
+			<div data-role="header" data-position="fixed" data-theme="b">
+				<a href="#apresentacao" data-role="button" data-transition="slide" data-direction="reverse">Voltar</a>
+				<h1>Sobre</h1>
+			</div>
+			
+			<!--Conteúdo-->
+			<div data-role="content">
+				
+				
+			</div>
+			
+			<!--Rodapé-->
+			<div data-role="footer" data-position="fixed" data-theme="b">
+				<h1>Janio L. Antunes</h1>
+			</div>
+		
+		</div>
+		
+		<!--Página Ganhadores-->
+		<div data-role="page" id="ganhadores">
+		
+			<!--Cabeçalho-->
+			<div data-role="header" data-position="fixed" data-theme="b">
+				<a href="#apresentacao" data-role="button" data-transition="slide" data-direction="reverse">Voltar</a>
+				<h1>Ganhadores</h1>
+			</div>
+			
+			<!--Conteúdo-->
+			<div data-role="content">
+				<div data-role="colapsive-set" >
+					<div data-role="collapsible" data-content-theme="b">
+						<h3>Mais Pontos</h3>
+						<p>Número de pontos: <span id="ganh_mais_pontos"></span></p>
+						<p>Total de ganhadores: <span id="ganh_mais_total"></span><p>
+						<p>Prêmio por ganhador: R$ <span id="ganh_mais_premio"></span><p>					
+					</div>
+					
+					<div data-role="collapsible" data-content-theme="b">
+						<h3>Menos Pontos</h3>
+						<p>Número de pontos: <span id="ganh_menos_pontos"></span></p>
+						<p>Total de ganhadores: <span id="ganh_menos_total"></span><p>
+						<p>Prêmio por ganhador: R$ <span id="ganh_menos_premio"></span><p>					
+					</div>
+					
+					<div data-role="collapsible" data-content-theme="b">
+						<h3>Tele Sena Completa</h3>
+						<p>Número de pontos: <span id="ganh_completa_pontos"></span></p>
+						<p>Total de ganhadores: <span id="ganh_completa_total"></span><p>
+						<p>Prêmio por ganhador: R$ <span id="ganh_completa_premio"></span><p>					
+					</div>
+					
+					<div data-role="collapsible" data-content-theme="b">
+						<h3>Prêmios Instantâneos</h3>						
+						<p>Total de ganhadores: <span id="ganh_inst_total"></span><p>						
+					</div>
+					
+					<div data-role="collapsible" data-content-theme="b">
+						<h3>Prêmio Casa</h3>						
+						<p>Sorteado em <span id="ganh_casa_data"></span><p>
+						<p>Título ganhador: <span id="ganh_casa_titulo"></span><p>		
+						<p>Resultado válido para a Tele Sena de <span id="ganh_casa_edicao"></span><p>	
+					</div>
+					
+				</div>	
+			</div>
+			
+			<!--Rodapé-->
+			<div data-role="footer" data-position="fixed" data-theme="b">
+				<h1>Janio L. Antunes</h1>
+			</div>
+		
+		</div>
+		
+		
+		<!--Página Tele Sena Completa-->
+		<div data-role="page" id="tscompleta">
+		
+			<!--Cabeçalho-->
+			<div data-role="header" data-position="fixed" data-theme="b">
+				<a href="#apresentacao" data-role="button" data-transition="slide" data-direction="reverse">Voltar</a>
+				<h1>Tele Sena Completa</h1>
+			</div>
+			
+			<!--Conteúdo-->
+			<div data-role="content">
+				<div data-role="collapsible" data-content-theme="b">
+						<h3 id="datatscompleta"></h3>
+						<p id="sorttscompleta"></p>	
+					</div>
+			</div>
+			
+			<!--Rodapé-->
+			<div data-role="footer" data-position="fixed" data-theme="b">
+				<h1>Janio L. Antunes</h1>
+			</div>
+		
+		</div>
+		
+		<!--Página Resultados-->
+		<div data-role="page" id="resultados">
+
+			<!--Cabeçalho-->
+			<div data-role="header" data-position="fixed" data-theme="b">
+				<a href="#apresentacao" data-role="button" data-transition="slide" data-direction="reverse">Voltar</a>
+				<h1>Resultados</h1>
+			</div>
+
+			<!--Conteúdo-->
+			<div data-role="content">
+			
+				<div data-role="colapsive-set" >
+					<div data-role="collapsible" data-content-theme="b">
+						<h3 id="data1"></h3>
+						<p id="sort1"></p>	
+					</div>
+					<div data-role="collapsible" data-content-theme="b">
+						<h3 id="data2"></h3>
+						<p id="sort2"></p>	
+					</div>
+					<div data-role="collapsible" data-content-theme="b">
+						<h3 id="data3"></h3>
+						<p id="sort3"></p>	
+					</div>
+					<div data-role="collapsible" data-content-theme="b">
+						<h3 id="data4"></h3>
+						<p id="sort4"></p>	
+					</div>
+					<div data-role="collapsible" data-content-theme="b">
+						<h3 id="data5"></h3>
+						<p id="sort5"></p>	
+					</div>	
+				<div>			
+				
+			</div>
+
+			<!--Rodapé-->
+			<div data-role="footer" data-position="fixed" data-theme="b">
+				<h1>Janio L. Antunes</h1>
+			</div>
+
+		</div>
+		
+		
+		
+		
+	</body>
+</html>

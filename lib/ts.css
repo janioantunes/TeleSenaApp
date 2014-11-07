@@ -1,0 +1,16 @@
+.ui-mobile-viewport{
+    background: url(TS_abertura.png) no-repeat;
+    background-size: 100% 100% !important;
+}
+.ui-page{
+    background:none;
+}
+.ui-overlay-a{
+    background:#222 !important;
+}
+.ui-panel-content-wrap{
+    background: none;
+}
+.ui-panel-content-wrap-closed{
+    background: none;
+}
